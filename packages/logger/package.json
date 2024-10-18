@@ -1,0 +1,23 @@
+{
+  "name": "@ecommerce/logger",
+  "version": "1.0.0",
+  "description": "logger",
+  "main": "./dist/index.js",
+  "types": "./dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly",
+    "watch": "pnpm build",
+    "lint": "eslint \"**/*.ts*\"",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "@ecommerce/eslint-config": "workspace:*",
+    "@ecommerce/typescript-config": "workspace:*",
+    "@ecommerce/utils": "workspace:^",
+    "@types/node": "^20.14.11",
+    "eslint": "^8.57.1",
+    "pino": "^8.19.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.6.2"
+  }
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Add Payment to Order
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/orders/e893dd13-9f6b-4488-b1bf-d88af6661217
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 3,
+    "actions": [
+      {
+        "action": "addPayment",
+        "payment": {
+          "typeId": "payment",
+          "id": "41bbcd86-100d-468c-a655-edf2c1f5a7f9"
+        }
+      }
+    ]
+  }
+}

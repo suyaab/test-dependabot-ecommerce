@@ -1,0 +1,45 @@
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+script:pre-request {
+  const axios = require('axios');
+  
+  const response = await axios({
+      method: 'POST',
+      url: `${bru.getEnvVar('CTP_AUTH_URL')}/oauth/token`,
+      auth: {
+        username: bru.getEnvVar('CTP_CLIENT_ID'),
+        password: bru.getEnvVar('CTP_CLIENT_SECRET'),
+      },
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      data: {
+          grant_type: 'client_credentials',
+          scope: `manage_project:${bru.getEnvVar('CTP_PROJECT_KEY')}`
+      },
+  });
+  
+  bru.setEnvVar('CT_BEARER_TOKEN', response.data.access_token);
+  
+}
+
+docs {
+  # CommerceTools (REST API)
+  
+  ## Concepts
+  
+  CommerceTools is a commerce engine that provides the E-commerce application's products, carts, orders, customers, and all other commerce related functionality.  
+  
+  CommerceTools can be accessed in a variety of ways, the easiest being the RESTful API, as well as the [Typecript SDK](https://docs.commercetools.com/sdk/javascript-sdk) (which is what the E-commerce site uses).
+  
+  ## Resources
+  
+  [HTTP API Documentation](https://docs.commercetools.com/api)
+  
+}

@@ -1,0 +1,15 @@
+meta {
+  name: Get Session
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{PAYON_API_URL}}/v1/checkouts/{{CHECKOUT_SESSION_ID}}
+  body: json
+  auth: inherit
+}
+
+vars:pre-request {
+  CHECKOUT_SESSION_ID: 2307F248FA9C9180E6F0BDBEF9B1C202.uat01-vm-tx04
+}

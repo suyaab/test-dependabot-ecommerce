@@ -1,0 +1,11 @@
+meta {
+  name: Get Project
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}
+  body: none
+  auth: inherit
+}

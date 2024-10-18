@@ -1,0 +1,54 @@
+meta {
+  name: Create Custom Type
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "key": "contact-info",
+    "name": {
+      "en": "Contact Information"
+    },
+    "description": {
+      "en": "Contact Information"
+    },
+    "resourceTypeIds": [
+      "order"
+    ],
+    "fieldDefinitions": [
+      {
+        "name": "firstName",
+        "label": {
+          "en": "First Name"
+        },
+        "required": false,
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine"
+      },
+      {
+        "name": "lastName",
+        "label": {
+          "en": "Last Name"
+        },
+        "required": false,
+        "type": {
+          "name": "String"
+        },
+        "inputHint": "SingleLine"
+      }
+    ]
+  }
+}

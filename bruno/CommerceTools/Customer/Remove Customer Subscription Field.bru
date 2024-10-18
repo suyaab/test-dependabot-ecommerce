@@ -1,0 +1,31 @@
+meta {
+  name: Remove Customer Subscription Field
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/customers/{{CUSTOMER_ID}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 37,
+    "actions": [
+      {
+        "action": "setCustomField",
+        "name": "nextPlan"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOMER_ID: 115b9c16-2e23-4047-8c6e-06d83b6567d3
+}

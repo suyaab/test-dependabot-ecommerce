@@ -1,0 +1,26 @@
+meta {
+  name: Create Session
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{PAYON_API_URL}}/v1/checkouts?entityId={{PAYON_ENTITY_ID}}
+  body: formUrlEncoded
+  auth: inherit
+}
+
+query {
+  entityId: {{PAYON_ENTITY_ID}}
+}
+
+body:form-urlencoded {
+  currency: GBP
+  amount: 89.00
+  createRegistration: true
+  merchantTransactionId: GBL919191
+  standingInstruction.source: CIT
+  standingInstruction.mode: INITIAL
+  standingInstruction.type: RECURRING
+  testMode: INTERNAL
+}

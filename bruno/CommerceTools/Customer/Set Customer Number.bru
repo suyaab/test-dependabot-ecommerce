@@ -1,0 +1,31 @@
+meta {
+  name: Set Customer Number
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/customers/{{CUSTOMER_ID}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 1,
+    "actions": [
+      {
+        "action": "setCustomerNumber",
+        "customerNumber": "DFSE324DD"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOMER_ID: c31a83be-dae6-4317-b785-3cbf1331927b
+}

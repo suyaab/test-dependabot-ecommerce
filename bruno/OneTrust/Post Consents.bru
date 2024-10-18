@@ -1,0 +1,41 @@
+meta {
+  name: Post Consents
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{ONETRUST_PRIVACY_URL}}/request/v1/consentreceipts
+  body: json
+  auth: none
+}
+
+headers {
+  identifier: {{CUSTOMER_EXTERNAL_ID}}
+}
+
+body:json {
+  {
+      "identifier": "{{EXTERNAL_ID}}",
+      "requestInformation": "{{ONETRUST_COLLECTION_POINT_TOKEN}}",
+      "purposes": [
+          {
+              "Id": "a07aa9e6-db16-42b0-9b68-743653c3ab6d",
+              "TransactionType": "CONFIRMED"
+          },
+          {
+              "Id": "0b27c8f4-12ba-472a-af0b-644fe7df48f1",
+              "TransactionType": "CONFIRMED"
+          },
+          {
+              "Id": "e75feb83-1980-418e-a516-bf41335ffd6d",
+              "TransactionType": "CONFIRMED"
+          }
+      ]
+  }
+  
+}
+
+vars:pre-request {
+  EXTERNAL_ID: 3bbbdc55-9188-43c6-a1d8-c5f5a3a73f1a
+}

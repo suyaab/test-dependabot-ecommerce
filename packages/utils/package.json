@@ -1,0 +1,28 @@
+{
+  "name": "@ecommerce/utils",
+  "version": "0.0.1",
+  "description": "utility functions, interfaces, etc",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly",
+    "watch": "pnpm build",
+    "lint": "eslint \"**/*.ts*\"",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "libphonenumber-js": "^1.11.3",
+    "tsup": "^8.0.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@ecommerce/eslint-config": "workspace:*",
+    "@ecommerce/typescript-config": "workspace:*",
+    "@types/node": "^20.14.11",
+    "eslint": "^8.57.1",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.2"
+  }
+}

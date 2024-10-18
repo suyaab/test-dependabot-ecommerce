@@ -1,0 +1,29 @@
+meta {
+  name: Validate Address
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{GOOGLE_API_URL}}/v1:validateAddress?key={{GOOGLE_VALIDATION_API_KEY}}
+  body: json
+  auth: none
+}
+
+query {
+  key: {{GOOGLE_VALIDATION_API_KEY}}
+}
+
+body:json {
+  {
+    "address": {
+      "addressLines": [
+        "9509 Alameda Creek Lane"
+      ],
+      "locality": "Eden Prairie",
+      "administrativeArea": "MN",
+      "postalCode": "55347",
+      "regionCode": "US"
+    }
+  }
+}

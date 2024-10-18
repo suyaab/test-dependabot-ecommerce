@@ -1,0 +1,27 @@
+meta {
+  name: New Recurring Authorization
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{PAYON_API_URL}}/v1/registrations/{{REGISTRATION_ID}}/payments?entityId={{PAYON_ENTITY_ID}}&amount=120.00&currency=USD&paymentType=PA&standingInstruction.source=MIT&standingInstruction.mode=REPEATED&standingInstruction.type=UNSCHEDULED&merchantTransactionId=USL91E3O4MLZ&testMode=INTERNAL
+  body: none
+  auth: inherit
+}
+
+query {
+  entityId: {{PAYON_ENTITY_ID}}
+  amount: 120.00
+  currency: USD
+  paymentType: PA
+  standingInstruction.source: MIT
+  standingInstruction.mode: REPEATED
+  standingInstruction.type: UNSCHEDULED
+  merchantTransactionId: USL91E3O4MLZ
+  testMode: INTERNAL
+}
+
+vars:pre-request {
+  REGISTRATION_ID: 8ac7a4a08f1463b3018f1582299f4bc4
+}

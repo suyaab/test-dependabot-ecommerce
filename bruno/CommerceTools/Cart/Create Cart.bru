@@ -1,0 +1,59 @@
+meta {
+  name: Create Cart
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/carts?expand=productType.name
+  body: json
+  auth: bearer
+}
+
+query {
+  expand: productType.name
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "taxMode": "ExternalAmount",
+    "currency": "USD",
+    "country": "US",
+    "customerEmail": "lsfjskljkeio@ciewuro.com",
+    "lineItems": [
+      {
+        "sku": "USLG02BS",
+        "quantity": 1
+      }
+    ],
+    "customerId": "0f54005b-55f7-4d08-98d3-50ff049638c3",
+    "shippingAddress": {
+      "firstName": "Will",
+      "lastName": "Sather",
+      "streetName": "23 slfj",
+      "additionalStreetInfo": "",
+      "postalCode": "94502",
+      "city": "js",
+      "state": "CA",
+      "country": "US"
+    },
+    "billingAddress": {
+      "firstName": "Will",
+      "lastName": "Sather",
+      "streetName": "23 slfj",
+      "additionalStreetInfo": "",
+      "postalCode": "94502",
+      "city": "js",
+      "state": "CA",
+      "country": "US"
+    },
+    "shippingMethod": {
+      "key": "ups-shipping-method",
+      "typeId": "shipping-method"
+    }
+  }
+}

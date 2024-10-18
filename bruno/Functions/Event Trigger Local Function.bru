@@ -1,0 +1,23 @@
+meta {
+  name: Event Trigger Local Function
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://func-bluebird-dtc-order-dev-eastus2.azurewebsites.net/admin/functions/{{FUNCTION_NAME}}
+  body: json
+  auth: none
+}
+
+headers {
+  x-functions-key: 
+}
+
+body:json {
+  {}
+}
+
+vars:pre-request {
+  FUNCTION_NAME: sm-check-subscription
+}

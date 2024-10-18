@@ -1,0 +1,19 @@
+meta {
+  name: Get Customers with Subscriptions
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/customers?where=custom(fields(status="active")) and custom(fields(nextOrderDate<"2024-08-07T20:31:21.516Z")) and (custom(fields(stoppedRetrying = false)) or custom(fields(stoppedRetrying is not defined)))
+  body: json
+  auth: bearer
+}
+
+params:query {
+  where: custom(fields(status="active")) and custom(fields(nextOrderDate<"2024-08-07T20:31:21.516Z")) and (custom(fields(stoppedRetrying = false)) or custom(fields(stoppedRetrying is not defined)))
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}

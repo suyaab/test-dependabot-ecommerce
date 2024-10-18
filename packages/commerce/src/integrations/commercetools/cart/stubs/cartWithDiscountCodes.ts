@@ -1,0 +1,127 @@
+import { Cart as CTCart } from "@commercetools/platform-sdk";
+
+export const cartWithDiscountCodes: CTCart = {
+  id: "fake-create-cart-id",
+  version: 1,
+  createdAt: "2024-03-08T00:47:19.471Z",
+  lastModifiedAt: "2024-03-08T00:47:19.471Z",
+  lastModifiedBy: {
+    clientId: "fake-client-id",
+  },
+  createdBy: {
+    clientId: "fake-client-id",
+  },
+  lineItems: [],
+  cartState: "Active",
+  totalPrice: {
+    type: "centPrecision",
+    currencyCode: "USD",
+    centAmount: 8900,
+    fractionDigits: 2,
+  },
+  country: "US",
+  shippingMode: "Single",
+  shipping: [],
+  customLineItems: [],
+  inventoryMode: "None",
+  taxMode: "Platform",
+  taxRoundingMode: "HalfEven",
+  taxCalculationMode: "LineItemLevel",
+  refusedGifts: [],
+  origin: "Customer",
+  itemShippingAddresses: [],
+  totalLineItemQuantity: 1,
+  discountCodes: [
+    {
+      discountCode: {
+        typeId: "discount-code",
+        id: "fake-discount-code-id",
+        obj: {
+          id: "fake-discount-code-id",
+          version: 1,
+          isActive: true,
+          code: "fake-discount-code",
+          createdAt: "2024-03-08T00:47:19.471Z",
+          lastModifiedAt: "2024-03-08T00:47:19.471Z",
+          cartDiscounts: [],
+          references: [],
+          groups: [],
+        },
+      },
+      state: "MatchesCart",
+    },
+  ],
+  directDiscounts: [],
+};
+
+export const cartWithInvalidDiscountCodes: CTCart = {
+  id: "fake-create-cart-id",
+  version: 1,
+  createdAt: "2024-03-08T00:47:19.471Z",
+  lastModifiedAt: "2024-03-08T00:47:19.471Z",
+  lastModifiedBy: {
+    clientId: "fake-client-id",
+  },
+  createdBy: {
+    clientId: "fake-client-id",
+  },
+  lineItems: [],
+  cartState: "Active",
+  totalPrice: {
+    type: "centPrecision",
+    currencyCode: "USD",
+    centAmount: 8900,
+    fractionDigits: 2,
+  },
+  country: "US",
+  shippingMode: "Single",
+  shipping: [],
+  customLineItems: [],
+  inventoryMode: "None",
+  taxMode: "Platform",
+  taxRoundingMode: "HalfEven",
+  taxCalculationMode: "LineItemLevel",
+  refusedGifts: [],
+  origin: "Customer",
+  itemShippingAddresses: [],
+  totalLineItemQuantity: 1,
+  discountCodes: [
+    {
+      discountCode: {
+        typeId: "discount-code",
+        id: "fake-discount-code-id",
+        obj: {
+          id: "fake-discount-code-id",
+          version: 1,
+          isActive: true,
+          code: "fake-discount-code",
+          createdAt: "2024-03-08T00:47:19.471Z",
+          lastModifiedAt: "2024-03-08T00:47:19.471Z",
+          cartDiscounts: [],
+          references: [],
+          groups: [],
+        },
+      },
+      state: "MatchesCart",
+    },
+    {
+      discountCode: {
+        typeId: "discount-code",
+        id: "fake-discount-code-id-2",
+        obj: {
+          id: "fake-discount-code-id-2",
+          version: 1,
+          isActive: true,
+          code: "wrong-discount-code",
+          createdAt: "2024-03-08T00:47:19.471Z",
+          lastModifiedAt: "2024-03-08T00:47:19.471Z",
+          cartDiscounts: [],
+          references: [],
+          groups: [],
+        },
+      },
+      state: "DoesNotMatchCart",
+    },
+  ],
+  directDiscounts: [],
+};

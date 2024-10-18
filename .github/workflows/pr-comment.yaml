@@ -1,0 +1,34 @@
+name: pr comment
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened]
+
+jobs:
+  comment:
+    if: ${{!startsWith(github.head_ref, 'dependabot/')}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const message = `
+            ## :warning: Required Checklist :warning:
+
+            #### :green_book: Does this PR change CommerceTools configuration?
+            - [ ] No it does **not**
+            - [ ] Added reference to PR in [CommerceTools configuration repo](https://github.com/Abbott-Bluebird/dtc-commercetools-terraform)
+
+            #### :pushpin: Does this make a change in AEM?
+            - [ ] No it does **not**
+            - [ ] Added reference to Jira ticket for the content move with all content paths and query paths below _and_ (if changed) I've copied source.json from AEM integrations into web public folder
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            })

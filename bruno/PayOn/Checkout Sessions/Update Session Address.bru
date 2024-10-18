@@ -1,0 +1,28 @@
+meta {
+  name: Update Session Address
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{PAYON_API_URL}}/checkouts/{{CHECKOUT_SESSION_ID}}?entityId={{PAYON_ENTITY_ID}}
+  body: formUrlEncoded
+  auth: inherit
+}
+
+query {
+  entityId: {{PAYON_ENTITY_ID}}
+}
+
+body:form-urlencoded {
+  billing.street1: 9509 Alameda Lane
+  billing.street2: Unit 501
+  billing.city: Alameda
+  billing.state: CA
+  billing.postcode: 02145
+  billing.country: US
+}
+
+vars:pre-request {
+  CHECKOUT_SESSION_ID: 9F7AF6F0388B9EA937F1F7377CD5A3EE.uat01-vm-tx03
+}

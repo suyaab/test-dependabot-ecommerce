@@ -1,0 +1,31 @@
+meta {
+  name: Update Billing Address
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{WEB_URL}}/api/checkout/apple-pay/update-billing-address
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "cartId": "{{CART_ID}}",
+    "billingAddress": {
+      "firstName": "Will",
+      "lastName": "Sather",
+      "addressLine1": "485 Foley Street",
+      "addressLine2": "Unit 5",
+      "city": "Somerville",
+      "state": "MA",
+      "postalCode": "02145",
+      "countryCode": "US"
+    }
+  }
+}
+
+vars:pre-request {
+  CART_ID: f72642d3-07f4-4ad1-ac67-5bb816f7f228
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Get Display Products
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/products?expand=masterData.current.categories%5B*%5D
+  body: none
+  auth: bearer
+}
+
+query {
+  expand: masterData.current.categories%5B*%5D
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}

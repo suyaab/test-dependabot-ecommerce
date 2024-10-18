@@ -1,0 +1,40 @@
+meta {
+  name: Update Cart Shipping Address
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/carts/{{CART_ID}}?expand=productType.name
+  body: json
+  auth: bearer
+}
+
+query {
+  expand: productType.name
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": {{CART_VERSION}},
+    "actions": [
+      {
+        "action": "addPayment",
+        "payment": {
+          "id": "{{PAYMENT_REFERENCE_ID}}",
+          "typeId": "payment"
+        }
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CART_ID: 4463d897-4b1c-4e7e-acce-731f516381bf
+  CART_VERSION: 10
+  PAYMENT_REFERENCE_ID: 5c51eb3a-1341-467c-b193-303a0643261f
+}

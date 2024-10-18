@@ -1,0 +1,34 @@
+meta {
+  name: Change Field Definition Label
+  type: http
+  seq: 14
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 39,
+    "actions": [
+      {
+        "action": "changeLabel",
+        "fieldName": "nextPlan",
+        "label": {
+          "en": "Next Plan"
+        }
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: customer-subscription
+}

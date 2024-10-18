@@ -1,0 +1,21 @@
+meta {
+  name: Authenticate
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{CTP_AUTH_URL}}
+  body: formUrlEncoded
+  auth: basic
+}
+
+auth:basic {
+  username: {{CTP_CLIENT_ID}}
+  password: {{CTP_CLIENT_SECRET}}
+}
+
+body:form-urlencoded {
+  grant_type: client_credentials
+  scope: manage_project:{{CTP_PROJECT_KEY}}
+}

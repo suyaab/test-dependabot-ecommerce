@@ -1,0 +1,24 @@
+meta {
+  name: Delete Order
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/orders/{{ORDER_ID}}?version={{ORDER_VERSION}}
+  body: none
+  auth: bearer
+}
+
+query {
+  version: {{ORDER_VERSION}}
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  ORDER_ID: 6f8e0294-3a9d-4cb9-ac53-b7a9ad90eb47
+  ORDER_VERSION: 1
+}

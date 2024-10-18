@@ -1,0 +1,32 @@
+meta {
+  name: Create Order From Cart
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/orders?expand=productType.name
+  body: json
+  auth: none
+}
+
+query {
+  expand: productType.name
+}
+
+body:json {
+  {
+    "cart": {
+      "id": "7d65fed3-ab20-496a-a450-7bbd2f88a4d4",
+      "typeId": "cart"
+    },
+    "version": 1,
+    "orderNumber": "USLLLOCAL01",
+    "custom": {
+      "type": {
+        "typeId": "type",
+        "key": "order-detail"
+      }
+    }
+  }
+}

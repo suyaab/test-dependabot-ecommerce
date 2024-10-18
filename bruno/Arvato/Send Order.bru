@@ -1,0 +1,16 @@
+meta {
+  name: Send Order
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{ARVATO_URL}}/order
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{ARVATO_USERNAME}}
+  password: {{ARVATO_PASSWORD}}
+}

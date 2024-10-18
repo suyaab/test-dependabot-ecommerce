@@ -1,0 +1,25 @@
+meta {
+  name: Get All Orders
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/orders?expand=productType.name
+  body: none
+  auth: bearer
+}
+
+query {
+  expand: productType.name
+  ~offset: 0
+  ~limit: 200
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  ORDER_NUMBER: USLLLOCAL01
+}

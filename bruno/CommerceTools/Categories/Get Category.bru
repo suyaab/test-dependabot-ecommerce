@@ -1,0 +1,19 @@
+meta {
+  name: Get Category
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/categories/key={{CATEGORY}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  CATEGORY: display-locations-category-key
+}

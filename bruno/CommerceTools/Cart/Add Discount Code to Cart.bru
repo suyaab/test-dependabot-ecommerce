@@ -1,0 +1,32 @@
+meta {
+  name: Add Discount Code to Cart
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/carts/{{cart_id}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": {{cart_version}},
+    "actions": [
+      {
+        "action": "addDiscountCode",
+        "code": "SAMPLE2"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  cart_id: 6c30b379-8b73-45d4-bb5f-a56ffce2cdb2
+  cart_version: 1
+}

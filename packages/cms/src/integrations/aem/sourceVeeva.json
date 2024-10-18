@@ -1,0 +1,24 @@
+{
+  "Veeva": {
+    "Home": "hp/veeva/veeva.json",
+    "LingoExperience": "lingo-experience/veeva/veeva.json",
+    "TheScience": "the-science/veeva/veeva.json",
+    "AboutUs": "about-us/veeva/veeva.json",
+    "PDP": "pdp/veeva/veeva.json",
+    "PrivacyNotice": "privacy-notice/veeva/veeva.json",
+    "SocialMediaTermsOfUse": "social-media-terms-of-use/veeva/veeva.json",
+    "TermsOfUse": "terms-of-use/veeva/veeva.json",
+    "TermsOfSale": "terms-of-sale/veeva/veeva.json",
+    "Unsubscribe": "unsubscribe/veeva/veeva.json",
+    "EULA": "eula/veeva/veeva.json",
+    "Navigation": "nav/veeva/veeva.json",
+    "Footer": "footer/veeva/veeva.json",
+    "EmailsCollectionModal": "shared-components/emails-collection-modal/veeva/veeva.json",
+    "PreLaunchEmailsCollectionModal": "shared-components/pre-launch-emails-collection-modal/veeva/veeva.json",
+    "CountryGateRedirectModal": "shared-components/country-gate/redirect/veeva/veeva.json",
+    "CountryGateSignupModal": "shared-components/country-gate/signup/veeva/veeva.json",
+    "CountryGateModal": "shared-components/country-gate/veeva/veeva.json",
+    "ExpertsCarousel": "shared-components/experts-carousel/veeva/veeva.json",
+    "Login": "login/veeva/veeva.json"
+  }
+}

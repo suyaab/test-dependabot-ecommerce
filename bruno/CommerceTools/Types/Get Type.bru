@@ -1,0 +1,19 @@
+meta {
+  name: Get Type
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: customer-subscription
+}

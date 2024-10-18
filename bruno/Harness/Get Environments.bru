@@ -1,0 +1,28 @@
+meta {
+  name: Get Environments
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{HARNESS_API_URL}}/environments?accountIdentifier={{ACCOUNT_ID}}&orgIdentifier=DTS&projectIdentifier=abbottbluebird&environmentIdentifier={{ENVIRONMENT}}&metrics=true&archived=true
+  body: none
+  auth: none
+}
+
+query {
+  accountIdentifier: {{ACCOUNT_ID}}
+  orgIdentifier: DTS
+  projectIdentifier: abbottbluebird
+  environmentIdentifier: {{ENVIRONMENT}}
+  metrics: true
+  archived: true
+}
+
+headers {
+  x-api-key: {{API_KEY}}
+}
+
+vars:pre-request {
+  FEATURE_FLAG_NAME: DTC_NewCheckout
+}

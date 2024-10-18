@@ -1,0 +1,28 @@
+meta {
+  name: Get Feature Flag
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{HARNESS_API_URL}}/features/{{FEATURE_FLAG_NAME}}?accountIdentifier={{ACCOUNT_ID}}&orgIdentifier=DTS&projectIdentifier=abbottbluebird&environmentIdentifier={{ENVIRONMENT}}&metrics=true&archived=true
+  body: none
+  auth: none
+}
+
+query {
+  accountIdentifier: {{ACCOUNT_ID}}
+  orgIdentifier: DTS
+  projectIdentifier: abbottbluebird
+  environmentIdentifier: {{ENVIRONMENT}}
+  metrics: true
+  archived: true
+}
+
+headers {
+  x-api-key: {{API_KEY}}
+}
+
+vars:pre-request {
+  FEATURE_FLAG_NAME: DTC_NewCheckout
+}

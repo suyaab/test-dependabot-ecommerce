@@ -1,0 +1,23 @@
+meta {
+  name: Get Product
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/products/{{PRODUCT_ID}}?expand=productType.name
+  body: none
+  auth: bearer
+}
+
+query {
+  expand: productType.name
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  PRODUCT_ID: 2c522e1a-f531-4d8b-8451-3b19f5e42ca7
+}

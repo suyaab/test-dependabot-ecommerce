@@ -1,0 +1,23 @@
+meta {
+  name: Get Payment Info By Order
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/orders/{{ORDER_ID_OR_NUM}}?expand=paymentInfo.payments[*]
+  body: none
+  auth: bearer
+}
+
+query {
+  expand: paymentInfo.payments[*]
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  ORDER_ID_OR_NUM: ef6f9827-9d23-4e8e-bf0c-f3da102215db
+}

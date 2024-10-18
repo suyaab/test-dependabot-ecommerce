@@ -1,0 +1,19 @@
+meta {
+  name: GET Payment
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/payments/{{paymentID}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  paymentID: d5661e57-d18b-4d07-8356-b52c1189cebd
+}

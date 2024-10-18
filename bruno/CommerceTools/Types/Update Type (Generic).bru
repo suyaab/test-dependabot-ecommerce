@@ -1,0 +1,61 @@
+meta {
+  name: Update Type (Generic)
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 25,
+    "actions": [
+      {
+        "action": "addFieldDefinition",
+        "fieldDefinition": {
+          "type": {
+            "name": "LocalizedEnum",
+            "values": [
+              {
+                "key": "active",
+                "label": {
+                  "en": "Active"
+                }
+              },
+              {
+                "key": "paused",
+                "label": {
+                  "en": "Paused"
+                }
+              },
+              {
+                "key": "cancelled",
+                "label": {
+                  "en": "Cancelled"
+                }
+              }
+            ]
+          },
+          "name": "status",
+          "label": {
+            "en": "Status"
+          },
+          "required": false,
+          "inputHint": "SingleLine"
+        }
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: customer-subscription
+}

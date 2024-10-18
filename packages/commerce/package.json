@@ -1,0 +1,37 @@
+{
+  "name": "@ecommerce/commerce",
+  "version": "0.0.1",
+  "description": "shared package to interact with commerce engine",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsup && tsc --emitDeclarationOnly",
+    "watch": "pnpm build",
+    "lint": "eslint \"**/*.ts*\"",
+    "test": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@commercetools/platform-sdk": "^7.4.0",
+    "@commercetools/sdk-client-v2": "^2.5.0",
+    "@ecommerce/finance": "workspace:*",
+    "@ecommerce/logger": "workspace:*",
+    "@ecommerce/utils": "workspace:*",
+    "@t3-oss/env-core": "^0.10.1",
+    "@types/uuid": "^9.0.8",
+    "short-unique-id": "^5.0.3",
+    "type-fest": "^4.21.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@ecommerce/eslint-config": "workspace:*",
+    "@ecommerce/typescript-config": "workspace:*",
+    "@types/node": "^20.14.11",
+    "@types/uuid": "^9.0.8",
+    "eslint": "^8.57.1",
+    "tsup": "^8.0.2",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.2"
+  }
+}

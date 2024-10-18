@@ -1,0 +1,23 @@
+meta {
+  name: Delete Customer
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/customers/{{CUSTOMER_ID}}?version=1
+  body: json
+  auth: bearer
+}
+
+query {
+  version: 1
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  CUSTOMER_ID: c31a83be-dae6-4317-b785-3cbf1331927b
+}

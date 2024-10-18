@@ -1,0 +1,27 @@
+meta {
+  name: US Customer Extension
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{AZURE_URL}}/us/ct-ext/ct-customer-extension?subscription-key={{CT_EXT_SUB_KEY}}
+  body: json
+  auth: none
+}
+
+params:query {
+  subscription-key: {{CT_EXT_SUB_KEY}}
+}
+
+body:json {
+  {
+    "action": "Create",
+    "resource": {
+      "obj": {
+        "id": "fake-customer-id",
+        "customerNumber": ""
+      }
+    }
+  }
+}

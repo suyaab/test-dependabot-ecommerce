@@ -1,0 +1,29 @@
+meta {
+  name: Get Braze User
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{BRAZE_API_URL}}/users/export/ids
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BRAZE_API_KEY}}
+}
+
+body:json {
+  {
+    "email_address": "{{EMAIL}}",
+    "fields_to_export": [
+      "email_subscribe",
+      "external_id"
+    ]
+  }
+}
+
+vars:pre-request {
+  EMAIL: potestdupetwo@ajfsiw.com
+}

@@ -1,0 +1,30 @@
+name: build push nonprod
+run-name: ${{ github.event_name == 'push' && format('(testing) {0}', github.event.head_commit.message) || format('({0}) Building {1}', inputs.build_env, github.sha) }}
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+    inputs:
+      build_env:
+        description: "Which environment? [research, development, testing(qa)]"
+        default: "development"
+        type: "choice"
+        options:
+          - research
+          - development
+          - testing
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-${{ github.event_name == 'push' && 'testing' || github.event.inputs.build_env }}
+  cancel-in-progress: true
+
+jobs:
+  build-push-nonprod:
+    uses: ./.github/workflows/build-push.yaml
+    with:
+      BUILD_TYPE: "nonprod"
+      BUILD_ENV: ${{ github.event_name == 'push' && 'testing' || github.event.inputs.build_env }}
+    secrets: inherit

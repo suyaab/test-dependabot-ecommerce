@@ -1,0 +1,16 @@
+meta {
+  name: Get Custom Object
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/custom-objects/{{container}}/{{key}}
+  body: none
+  auth: inherit
+}
+
+vars:pre-request {
+  container: cart-contact-info
+  key: 85c76013-4cae-4b14-846e-32c0d22a298b
+}

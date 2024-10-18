@@ -1,0 +1,37 @@
+name: pr env comment
+
+on:
+  pull_request:
+    types: [opened, reopened]
+    paths:
+      - "**/env.ts"
+
+jobs:
+  env-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const message = `
+            ## :warning: Environment Variable Changes :warning:
+            GitHub Actions has detected that this PR changes one (or multiple) **/env.ts files.  Please follow the checklist below to ensure these are not breaking changes upon merge.  The process for creating Lingo infrastructure Jira Tickets can be found at [Confluence](https://lingo-abbott.atlassian.net/wiki/spaces/BLUEBIRD/pages/9044285/Cloud+Infrastructure+DevOps+Request+Process+-+Jira+Story+Creation).
+
+            You can also create a Lingo infrastructure ticket [here](https://lingo-abbott.atlassian.net/secure/CreateIssueDetails!init.jspa?pid=10008&issuetype=10005&customfield_10176=10748&priority=4).
+
+            #### :nut_and_bolt: Environment Variables
+            - [ ] I confirm there are no breaking changes to the environment variables
+            - [ ] I have created a PR that adds / updates the env var in the [config repo](https://github.com/Abbott-Bluebird/bluebird-cloud-infra-dtc) and I have added a reference to the PR in this comment
+
+            #### :closed_lock_with_key: Environment Secrets
+            - [ ] I confirm there are no breaking changes to the environment variable secrets
+            - [ ] I have created a PR that adds a new environment secret **comment** in [config repo](https://github.com/Abbott-Bluebird/bluebird-cloud-infra-dtc) and add a reference to the PR in this comment
+            - [ ] I have added a reference to the Jira ticket for infra to add the secret to code and keyvault in this comment
+            `;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: message
+            })

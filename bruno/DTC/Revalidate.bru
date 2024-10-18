@@ -1,0 +1,16 @@
+meta {
+  name: Revalidate
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://app-bluebird-dtc-prod-northeurope.azurewebsites.net/us/api/revalidate?path=/lingo-experience&secret={{REVALIDATION_SECRET}}
+  body: none
+  auth: basic
+}
+
+query {
+  path: /lingo-experience
+  secret: {{REVALIDATION_SECRET}}
+}

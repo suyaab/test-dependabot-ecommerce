@@ -1,0 +1,24 @@
+meta {
+  name: Get Cart
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/carts/{{CART_ID}}
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~expand: productType.name
+  ~expand: discountCodes[*].discountCode
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  CART_ID: 7a427c9c-7886-434f-96ec-0cad687afbb4
+}

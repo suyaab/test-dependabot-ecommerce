@@ -1,0 +1,21 @@
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{PAYON_AUTH_TOKEN}}
+}
+
+docs {
+  # PayOn
+  
+  ## API
+  
+  PayOn uses an API Endpoint to interface with their Payment Gateway, which creates checkout sessions, payments, and registrations.  This then allows the E-commerce application to create recurring authorizations using the initial registration (which stores the user's credit card details). 
+  
+  ## Resources
+  
+  [COPYandPAY Documentation](https://riverty.docs.oppwa.com/tutorials/integration-guide/widget-api)
+  
+  [API Documentation](https://riverty.docs.oppwa.com/reference/parameters)
+}

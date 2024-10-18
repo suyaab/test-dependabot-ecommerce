@@ -1,0 +1,13 @@
+{
+  "extends": "@ecommerce/typescript-config/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "./dist",
+    "allowJs": true,
+    "jsx": "preserve",
+    "types": ["vitest/globals"],
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,33 @@
+meta {
+  name: Change Type Name
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 2,
+    "actions": [
+      {
+        "action": "changeName",
+        "name": {
+          "en": "Avalara Order"
+        }
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: customer-subscription
+}

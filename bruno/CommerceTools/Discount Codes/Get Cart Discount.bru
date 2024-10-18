@@ -1,0 +1,19 @@
+meta {
+  name: Get Cart Discount
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/discount-codes/{{DISCOUNT_ID}}
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  DISCOUNT_ID: 38b87ced-e4b8-453c-8c45-40e07ddc1cee
+}

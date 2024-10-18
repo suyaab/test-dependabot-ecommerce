@@ -1,0 +1,32 @@
+auth {
+  mode: bearer
+}
+
+auth:bearer {
+  token: {{ONETRUST_BEARER_TOKEN}}
+}
+
+script:pre-request {
+  const axios = require('axios');
+  
+  try {
+      const response = await axios({
+          method: 'POST',
+          url: `${bru.getEnvVar('ONETRUST_URL')}/api/access/v1/oauth/token`,
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          data: {
+            grant_type: 'client_credentials',
+            client_id: bru.getEnvVar('ONETRUST_CLIENT_ID'),
+            client_secret: bru.getEnvVar('ONETRUST_CLIENT_SECRET'),
+          },
+      });
+    
+      console.log(response)
+    
+      bru.setEnvVar('ONETRUST_BEARER_TOKEN', response.data.access_token);
+  } catch (error) {
+      throw error;
+  }
+}

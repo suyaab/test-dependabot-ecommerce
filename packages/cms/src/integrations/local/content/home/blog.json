@@ -1,0 +1,64 @@
+{
+  "data": {
+    "typename": "Home Blog",
+    "title": "From the Lingo library",
+    "subTitle": "Education & Resources",
+    "button": {
+      "label": "Read more",
+      "variant": "dark"
+    },
+    "featBlogEntries": [
+      {
+        "cat": {
+          "name": "Nutrition",
+          "url": "/"
+        },
+        "title": "Why do we struggle with weight?",
+        "link": "/",
+        "image": {
+          "url": "/images/hp/blog/placeholder_mobile.png",
+          "desktopUrl": "/images/hp/blog/placeholder_desktop.png",
+          "width": 375,
+          "height": 400,
+          "desktopWidth": 925,
+          "desktopHeight": 400,
+          "alt": "Why do we struggle with weight?"
+        }
+      },
+      {
+        "cat": {
+          "name": "Learn essentials",
+          "url": "/"
+        },
+        "title": "Does metabolism really slow as we age?",
+        "link": "/",
+        "image": {
+          "url": "/images/hp/blog/placeholder_mobile.png",
+          "desktopUrl": "/images/hp/blog/placeholder_desktop.png",
+          "width": 375,
+          "height": 400,
+          "desktopWidth": 925,
+          "desktopHeight": 400,
+          "alt": "Does metabolism really slow as we age?"
+        }
+      },
+      {
+        "cat": {
+          "name": "Body & mind",
+          "url": "/"
+        },
+        "title": "Women and the hormone reality",
+        "link": "/",
+        "image": {
+          "url": "/images/hp/blog/placeholder_mobile.png",
+          "desktopUrl": "/images/hp/blog/placeholder_desktop.png",
+          "width": 375,
+          "height": 400,
+          "desktopWidth": 925,
+          "desktopHeight": 400,
+          "alt": "Women and the hormone reality"
+        }
+      }
+    ]
+  }
+}

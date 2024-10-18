@@ -1,0 +1,40 @@
+meta {
+  name: Update Shipping Address
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/carts/{{CART_ID}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 3,
+    "actions": [
+      {
+        "action": "setShippingAddress",
+        "address": {
+          "firstName": "Will",
+          "lastName": "Sather",
+          "streetName": "9509 Riley Lake Road",
+          "additionalStreetInfo": "Unit 5",
+          "city": "Eden Prairie",
+          "postalCode": "55347",
+          "state": "MN",
+          "country": "US"
+        }
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CART_ID: 32c31197-75aa-49c8-b34c-49b3f2d45130
+}

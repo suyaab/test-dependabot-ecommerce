@@ -1,0 +1,19 @@
+meta {
+  name: Get Order
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/orders/{{ORDER_ID}}?expand=lineItems[*].productType
+  body: none
+  auth: inherit
+}
+
+query {
+  expand: lineItems[*].productType
+}
+
+vars:pre-request {
+  ORDER_ID: 54e3569b-1c92-40db-bdfd-82e3e494b1b4
+}

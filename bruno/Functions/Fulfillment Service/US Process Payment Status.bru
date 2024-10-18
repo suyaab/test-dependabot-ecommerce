@@ -1,0 +1,37 @@
+meta {
+  name: US Process Payment Status
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{AZURE_URL}}/us/fs/fs-process-order-status?subscription-key={{FS_SUB_KEY}}
+  body: json
+  auth: none
+}
+
+params:query {
+  subscription-key: {{FS_SUB_KEY}}
+}
+
+body:json {
+  {
+    "header": {
+      "correlationId": "MFT00036647389",
+      "eventName": "updatePaymentStatus",
+      "environment": "dev",
+      "locale": "en-US"
+    },
+    "payload": {
+      "orderStatus": {
+        "orderExternalId": "USL91MXE0MPB",
+        "customerExternalId": "914XQX54R",
+        "status": "100",
+        "statusDate": "20240617163621",
+        "orderStatusLines": [
+          {}
+        ]
+      }
+    }
+  }
+}

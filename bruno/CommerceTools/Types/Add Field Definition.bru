@@ -1,0 +1,40 @@
+meta {
+  name: Add Field Definition
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 38,
+    "actions": [
+      {
+        "action": "addFieldDefinition",
+        "fieldDefinition": {
+          "type": {
+            "name": "Number"
+          },
+          "name": "prepaidShipmentsRemaining",
+          "label": {
+            "en": "Prepaid Shipments Remaining"
+          },
+          "required": true
+        }
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: customer-subscription
+}

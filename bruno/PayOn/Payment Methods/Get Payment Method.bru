@@ -1,0 +1,33 @@
+meta {
+  name: Get Payment Method
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{PAYON_API_URL}}/v1/registrations/{{PAYMENT_METHOD_ID}}?entityId={{PAYON_ENTITY_ID}}
+  body: none
+  auth: inherit
+}
+
+query {
+  entityId: {{PAYON_ENTITY_ID}}
+}
+
+vars:pre-request {
+  PAYMENT_METHOD_ID: 8ac7a4a28f562b5c018f58fe90e13f6c
+}
+
+docs {
+  # Get Payment Method
+  
+  ### `/registration`
+  
+  PayOn uses the verbiage `Registration` to represent a saved payment method.  This registration is optionally created during checkout using the `CheckoutSession` property `createRegistration`.  
+  
+  Once the initial `createRegistration` has completed, we have the ability to do a few things with it:
+  
+  1. We can make this request to retrieve payment details.  This is important to be able to show the user the last four digits of their card number, their expiration date, and the brand of card they used.
+  
+  2. Secondly, we can use this registration to create a new transaction to authorize the card again (in our case, a new subscription order.)
+}

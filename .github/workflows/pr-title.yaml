@@ -1,0 +1,78 @@
+name: pr title
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+env:
+  PR_TITLE: PR_TITLE.txt
+
+jobs:
+  commitlint:
+    if: ${{!startsWith(github.head_ref, 'dependabot/')}}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: true
+
+      - name: Install commitlint
+        run: |
+          pnpm add --global @commitlint/cli @commitlint/config-conventional
+
+      - name: Lint PR Title
+        run: |
+          echo "${{ github.event.pull_request.title }}" | cat > $PR_TITLE
+          pnpm dlx commitlint --config commitlint.pr.config.ts --env PR_TITLE --verbose
+
+      - name: Comment with JIRA link
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const prTitle = context.payload.pull_request.title;
+            const jiraMatch = prTitle.match(/\(\d{5,6}\)/);
+            if (jiraMatch) {
+              const jiraNumber = jiraMatch[0].substring(1, jiraMatch[0].length - 1)
+              const jiraLink = `https://lingo-abbott.atlassian.net/browse/BLUEBIRD-${jiraNumber}`;
+              const jiraMessage = `This PR is linked to JIRA issue:`;
+              const message = `
+              ## :blue_book: Linked JIRA Issue
+
+              #### :link: ${jiraMessage} [${jiraMatch[0]}](${jiraLink})
+              `;
+
+              // Fetch existing comments
+              const { data: comments } = await github.rest.issues.listComments({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+              });
+
+              // Find the comment with the JIRA link
+              const jiraComment = comments.find(comment => comment.body.includes(jiraMessage));
+
+              if (jiraComment) {
+                // Update the existing comment
+                await github.rest.issues.updateComment({
+                  comment_id: jiraComment.id,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: message,
+                });
+              } else {
+                // Create a new comment
+                await github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: message,
+                });
+              }
+            }

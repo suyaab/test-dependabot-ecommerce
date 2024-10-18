@@ -1,0 +1,37 @@
+meta {
+  name: Update Customer Subscription
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/customers/{{CUSTOMER_ID}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 29,
+    "actions": [
+      {
+        "action": "setCustomField",
+        "name": "prepaidShipmentsRemaining",
+        "value": null
+      },
+      {
+        "action": "setCustomField",
+        "name": "status",
+        "value": "active"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOMER_ID: 115b9c16-2e23-4047-8c6e-06d83b6567d3
+}

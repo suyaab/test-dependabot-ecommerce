@@ -1,0 +1,15 @@
+meta {
+  name: UK Get Customer
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{AZURE_URL}}/dtcorder/dtc-customer-by-email?subscription-key={{UK_AUTH_SUB_KEY}}
+  body: none
+  auth: none
+}
+
+params:query {
+  subscription-key: {{UK_AUTH_SUB_KEY}}
+}

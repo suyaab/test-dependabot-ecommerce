@@ -1,0 +1,32 @@
+meta {
+  name: Update Payment
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/payments/{{paymentId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version" : 1,
+    "actions" : [ {
+      "action" : "transitionState",
+      "state" : {
+        "typeId" : "state",
+        "id" : "18748fe6-7f77-456a-96c8-913b1e4bbc9c"
+      }
+    } ]
+  }
+}
+
+vars:pre-request {
+  paymentId: 510775d4-8cab-4a64-8580-94def7e56716
+}

@@ -1,0 +1,50 @@
+meta {
+  name: Add Type Custom Field
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 1,
+    "actions": [
+      {
+        "action": "addFieldDefinition",
+        "fieldDefinition": {
+          "type": {
+            "name": "Enum",
+            "values": [
+              {
+                "key": "ecommerce",
+                "label": "E-commerce"
+              },
+              {
+                "key": "moto",
+                "label": "Mail Order/Telephone Order"
+              }
+            ]
+          },
+          "name": "channel",
+          "label": {
+            "en": "Channel"
+          },
+          "required": false
+        }
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: order-detail
+}

@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sideGap: 24px;
+  --sideGapDesktop: 100px;
+  --colGap: 16px;
+  --colGapDesktop: 24px;
+
+  --navigationHeight: 76px;
+  --navigationHeightDesktop: 88px;
+
+  --promoBarHeight: 40px;
+
+  /* ShadCN components styling vars */
+  --background: 0 0% 100%;
+  --foreground: 222.2 84% 4.9%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+
+  --primary: 222.2 47.4% 11.2%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;
+  --secondary-foreground: 222.2 47.4% 11.2%;
+
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 222.2 47.4% 11.2%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  html {
+    color: theme("colors.charcoal.DEFAULT");
+  }
+
+  body {
+    pointer-events: auto !important;
+  }
+
+  /* TYPOGRAPHY */
+  h1,
+  .h1,
+  h2,
+  .h2 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  h3,
+  .h3 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  h4,
+  .h4 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  h5,
+  .h5,
+  .headline,
+  .subtitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  small {
+    @apply text-sm;
+  }
+
+  b,
+  strong {
+    @apply font-semibold;
+  }
+
+  @screen lg {
+    h1,
+    .h1,
+    h2,
+    .h2 {
+      font-size: 56px;
+      line-height: 60px;
+    }
+
+    h3,
+    .h3 {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    h4,
+    .h4 {
+      font-size: 40px;
+      line-height: 48px;
+    }
+
+    h5,
+    .h5,
+    .headline {
+      font-size: 32px;
+      line-height: 40px;
+    }
+  }
+
+  .button-label {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  body {
+    @apply font-normal text-lg antialiased;
+    max-width: 100vw;
+  }
+}
+
+@layer components {
+  /* ---------------------------------------------------------- */
+  /* Container aligned in center with a max width of 1440px(xxl)
+  /* ---------------------------------------------------------- */
+  .container-full {
+    @apply mx-auto max-w-screen-xxl;
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* Container aligned in center with a max width of 1440px(xxl) + side margin
+  /* ------------------------------------------------------------------------ */
+  .container {
+    @apply container-full px-[var(--sideGap)] lg:px-[var(--sideGapDesktop)];
+  }
+
+  /* --------------------------------------- */
+  /* Grid Container (nested from Container)  */
+  /* Mobile:  4 cols, 16px gap               */
+  /* Desktop: 12 cols, 24px gap              */
+  /* --------------------------------------- */
+  .grid-container {
+    @apply container grid grid-cols-4 gap-[var(--colGap)] lg:grid-cols-12 lg:gap-[var(--colGapDesktop)];
+  }
+
+  /* Buttons */
+  .button-base {
+    @apply button-label inline-block rounded-full px-6 py-4 text-center font-semibold transition-all duration-300 disabled:cursor-default;
+  }
+
+  .button-light {
+    @apply button-base bg-linen text-charcoal hover:bg-linen/90 disabled:bg-linen/90;
+  }
+
+  .button-dark {
+    @apply button-base bg-charcoal text-white hover:bg-opacity-75 disabled:bg-charcoal/40;
+  }
+
+  .button-outline {
+    @apply button-base border-2 border-solid border-charcoal bg-transparent text-charcoal hover:bg-charcoal/10;
+  }
+
+  .button-outline-light {
+    @apply button-base border-2 border-solid border-linen bg-transparent text-linen hover:bg-charcoal/10 hover:text-charcoal;
+  }
+
+  .spinner .circle {
+    stroke-linecap: round;
+    transform-origin: 50% 50%;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 153;
+    @apply animate-spin;
+  }
+
+  .form-input {
+    @apply h-16 w-full rounded border border-charcoal/30 text-charcoal placeholder-charcoal/50 focus:border-blue focus:ring-blue disabled:cursor-not-allowed disabled:bg-charcoal/10;
+  }
+
+  .checkbox,
+  .radio {
+    @apply form-input size-6;
+  }
+}
+
+@layer utilities {
+  .no-r-gap {
+    @apply -mr-[--sideGap] lg:-mr-[--sideGapDesktop];
+  }
+
+  .no-l-gap {
+    @apply -ml-[--sideGap] lg:-ml-[--sideGapDesktop];
+  }
+
+  .no-x-gap {
+    @apply -mx-[--sideGap] lg:-mx-[--sideGapDesktop];
+  }
+
+  .under-menu {
+    @apply relative -top-[var(--navigationHeight)] lg:-top-[var(--navigationHeightDesktop)];
+  }
+}
+
+/* TrustArc styles */
+#consent-banner {
+  position: fixed;
+  z-index: 2100;
+  pointer-events: auto;
+}

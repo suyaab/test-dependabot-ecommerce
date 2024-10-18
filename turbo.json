@@ -1,0 +1,122 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": [
+    "CI",
+    "NODE_ENV",
+    "LINGO_ENV",
+    "LOG_LEVEL",
+    "GIT_SHA",
+
+    "IGNORE_AUTH_LOCALLY",
+    "WEBSITE_INSTANCE_ID",
+    "NEXT_RUNTIME",
+
+    "AUTH0_SECRET",
+    "AUTH0_BASE_URL",
+    "AUTH0_ISSUER_BASE_URL",
+    "AUTH0_CLIENT_ID",
+    "AUTH0_CLIENT_SECRET",
+
+    "ADOBE_DTM_SCRIPT",
+
+    "ARVATO_APPLICATION_COUNTRY_CODE",
+    "ARVATO_SEEBURGER_URL",
+    "ARVATO_USERNAME",
+    "ARVATO_PASSWORD",
+
+    "AVALARA_ACCOUNT_ID",
+    "AVALARA_LICENSE_KEY",
+
+    "NEXT_PUBLIC_ARVATO_TRACKING_SCRIPT",
+    "NEXT_PUBLIC_ARVATO_RETURN_SCRIPT",
+
+    "AZURE_SERVICEBUS_CONN_STR",
+
+    "GOOGLE_VALIDATION_API_KEY",
+    "NEXT_PUBLIC_GOOGLE_PLACES_API_KEY",
+
+    "BRAZE_API_URL",
+    "BRAZE_SDK_URL",
+    "BRAZE_API_KEY",
+    "BRAZE_WEB_KEY",
+    "BRAZE_LINGO_DATA_PLATFORM_ID",
+    "BRAZE_SUBSCRIPTION_SPECIAL_OFFERS",
+    "BRAZE_SUBSCRIPTION_NEWS_CONTENT",
+    "BRAZE_SUBSCRIPTION_PRODUCT_UPDATES",
+
+    "CTP_PROJECT_KEY",
+    "CTP_CLIENT_ID",
+    "CTP_CLIENT_SECRET",
+    "CTP_API_URL",
+    "CTP_AUTH_URL",
+
+    "ON_DEMAND_REVALIDATION_SECRET",
+
+    "HARNESS_SERVER_API_KEY",
+    "NEXT_PUBLIC_HARNESS_CLIENT_API_KEY",
+
+    "ONETRUST_URL",
+    "ONETRUST_PRIVACY_URL",
+    "ONETRUST_CLIENT_ID",
+    "ONETRUST_CLIENT_SECRET",
+    "ONETRUST_PRIVACY_PORTAL_ID",
+    "ONETRUST_US_COLLECTION_POINT_ID",
+    "ONETRUST_UK_UNSUBSCRIBE_COLLECTION_POINT_ID",
+
+    "PAYON_API_URL",
+    "PAYON_AUTH_TOKEN",
+    "PAYON_ECOMM_ENTITY_ID",
+    "PAYON_MOTO_ENTITY_ID",
+    "PAYON_TEST_MODE",
+
+    "SENDGRID_API_KEY",
+
+    "REDIS_URL",
+    "REDIS_ACCESS_KEY",
+
+    "ANALYZE",
+    "NEXT_PHASE",
+    "NEXT_PRIVATE_DEBUG_CACHE",
+
+    "LINGO_APP_GRAPHQL_ENDPOINT",
+    "LINGO_APP_API_KEY"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputLogs": "new-only"
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "watch": {
+      "dependsOn": ["^watch"]
+    },
+    "test": {
+      "outputLogs": "new-only"
+    },
+    "test:e2e": {
+      "outputLogs": "new-only"
+    },
+    "test:e2e:ci": {
+      "outputLogs": "new-only"
+    },
+    "lint": {
+      "outputLogs": "new-only"
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    },
+    "func": {
+      "cache": false,
+      "persistent": true
+    },
+    "clean": {
+      "cache": false
+    }
+  },
+  "ui": "stream"
+}

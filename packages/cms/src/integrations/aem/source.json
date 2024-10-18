@@ -1,0 +1,131 @@
+{
+  "Metadata": {
+    "Default": "default-metadata/metadata_v2.json",
+    "NotFound": "not-found/metadata/metadata_v2.json",
+    "Home": "hp/metadata/homeMetadata_v2.json",
+    "LingoExperience": "lingo-experience/metadata/leMetadata_v2.json",
+    "TheScience": "the-science/metadata/tsMetadata_v2.json",
+    "AboutUs": "about-us/metadata/auMetadata_v2.json",
+    "PrivacyNotice": "privacy-notice/metadata/pnMetadata_v2.json",
+    "TermsOfUse": "terms-of-use/metadata/touMetadata_v2.json",
+    "TermsOfSale": "terms-of-sale/metadata/tsMetadata_v2.json",
+    "SocialMediaTermsOfUse": "social-media-terms-of-use/metadata/smtouMetadata_v2.json",
+    "EULA": "eula/metadata/eulaMetadata_v2.json",
+    "PDP": "pdp/metadata/metadata_v2.json",
+    "Checkout": "checkout/checkout-metadata/metadata_v2.json",
+    "OrderConfirmation": "checkout/order-confirmation/metadata/metadata_v2.json",
+    "OrderReturns": "checkout/order-returns/metadata/metadata_v2.json",
+    "OrderTracking": "checkout/order-tracking/metadata/metadata_v2.json",
+    "Account": "account/metadata/metadata_v2.json",
+    "Unsubscribe": "unsubscribe/metadata/metadata_v2.json"
+  },
+  "Hero": {
+    "Home": "hp/hero/hero_v2.json",
+    "LingoExperience": "lingo-experience/hero/le_hero_v2.json",
+    "TheScience": "the-science/hero/ts_hero_v2.json",
+    "AboutUs": "about-us/hero/au_hero_v2.json"
+  },
+  "FAQ": {
+    "Home": "hp/faq/faq_v2.json",
+    "LingoExperience": "lingo-experience/faq/faq_v2.json",
+    "TheScience": "the-science/faq/faq_v2.json",
+    "PDP": "pdp/faq/faq_v2.json"
+  },
+  "References": {
+    "TheScience": "the-science/references/references_v2.json"
+  },
+  "SignUp": {
+    "Footer": "footer/signup_v2.json",
+    "FooterEcommerce": "footer/signup_ecomm_v2.json"
+  },
+  "DuplexAccordion": {
+    "HomeScience": "hp/science/scienceAccordion_v2.json",
+    "LingoExperienceBiosensor": "lingo-experience/biosensor-accordion/biosensorAccordion_v2.json"
+  },
+  "ResponsiveImage": {
+    "HomeFeatures": "hp/features/featuresImage_v2.json",
+    "HomeNutrition": "hp/nutrition/nutritionImage_v2.json",
+    "HomeHeroEligible": "hp/hero/heroLogoEligible_v2.json",
+    "HomeHeroFDACleared": "hp/hero/heroLogoCleared_v2.json",
+    "HomeProductHighlight": "hp/product-highlight/productHighlightImage_v2.json",
+    "NotFound": "not-found/notFoundImage_v2.json"
+  },
+  "Duplex": {
+    "AboutUs": "about-us/duplex-our/aboutUsDuplexContentList_v2.json",
+    "LingoExperience": "lingo-experience/duplex-journey/lingoExperienceDuplexContentList_v2.json",
+    "Science": "the-science/duplex-learn/scienceDuplexContentList_v2.json",
+    "ScienceStudy": "the-science/duplex-study/scienceStudyDuplexContentList_v2.json"
+  },
+  "Text": {
+    "LEWhatToExpect": "lingo-experience/what-to-expect/whatToExpect_v2.json",
+    "LEReferenceText": "lingo-experience/references/references_v2.json",
+    "TheScienceTopText": "the-science/top-text/topText_v2.json",
+    "AboutUsTopText": "about-us/top-text/topText_v2.json",
+    "PromoBar": "shared-components/promo-bar/promoBar_v2.json"
+  },
+  "IconItemList": {
+    "TheScienceFuelBetter": "the-science/fuel-better/fuelBetter_v2.json",
+    "LEBiosensorFeatures": "lingo-experience/biosensor-features/biosensorFeatures_v2.json"
+  },
+  "CountryGateRedirect": {
+    "US": "shared-components/country-gate/redirect/US_v2.json",
+    "PR": "shared-components/country-gate/redirect/US_v2.json",
+    "GB": "shared-components/country-gate/redirect/GB_v2.json"
+  },
+  "CountryGateSignup": "shared-components/country-gate/signup/signup.json",
+  "CountryGate": "shared-components/country-gate/country-gate.json",
+  "Nav": "nav/nav_v2.json",
+  "Footer": "footer/footer_v2.json",
+  "FooterEcommerce": "footer/footer_ecomm_v2.json",
+  "Shared": {
+    "ExpertsCarousel": "shared-components/experts-carousel/expertsCarousel_v2.json",
+    "EmailCollectionModal": "shared-components/emails-collection-modal/emailsCollectionModal_v2.json",
+    "PreLaunchEmailCollectionModal": "shared-components/pre-launch-emails-collection-modal/preLaunchEmailsCollectionModal_v2.json"
+  },
+  "HP": {
+    "Nutrition": "hp/nutrition/nutritionBlock_v2.json",
+    "Glucose": "hp/glucose-info/glucoseInfoBlock_v2.json",
+    "Features": "hp/features/featuresContent_v2.json",
+    "ProductHighlight": "hp/product-highlight/productHighlightContent_v2.json",
+    "ProductHighlightEcommerce": "hp/product-highlight/productHighlightContent_ecomm_v2.json",
+    "MetabolismMyths": "hp/metabolism-myths/metabolismMyths_v2.json"
+  },
+  "LE": {
+    "ResearchInfo": "lingo-experience/research/researchInfoBlock_v2.json",
+    "CoachingTabs": "lingo-experience/coaching-app-tabs/CoachingAppTabs_v2.json",
+    "ExperienceCarousel": "lingo-experience/experience-carousel/experienceCarousel_v2.json"
+  },
+  "PDP": {
+    "Products": "pdp/products/pdp_products_v2.json",
+    "ProductCarousel": "pdp/product-carousel/productCarousel_v2.json",
+    "Features": "pdp/features/productFeatures_v2.json",
+    "DecideDialog": "pdp/decide-dialog/productDecideDialog_v2.json",
+    "FormContent": "pdp/form-content/productForm_v2.json",
+    "NextCarousel": "pdp/next-carousel/pdpNextCarousel_v2.json"
+  },
+  "Sample": {
+    "Products": "sample/sampleProducts_v2.json",
+    "FormContent": "sample/sampleProductForm_v2.json",
+    "ProductCarousel": "sample/sample-product-carousel/sampleProductCarousel_v2.json"
+  },
+  "Checkout": {
+    "Sections": "checkout/checkout-sections/checkoutSections_v2.json",
+    "PromotionalSections": "checkout/checkout-sections/promotionalCheckoutSections_v2.json",
+    "OrderSummary": "checkout/order-summary/checkoutOrderSummary_v2.json",
+    "OrderConfirmation": "checkout/order-confirmation/orderConfirmation_v2.json"
+  },
+  "NotFound": {
+    "NotFoundContent": "not-found/notFound_v2.json"
+  },
+  "HTML": {
+    "PrivacyNotice": "privacy-notice/data.json",
+    "EULA": "eula/data.json",
+    "SocialMediaTermsOfUse": "social-media-terms-of-use/data.json",
+    "TermsOfSale": "terms-of-sale/data.json",
+    "TermsOfUse": "terms-of-use/data.json"
+  },
+  "PrivacyNotice": "privacy-notice/privacy-notice.json",
+  "AccountManagement": {
+    "OrderSummary": "account/order-summary/order_summary_v2.json"
+  }
+}

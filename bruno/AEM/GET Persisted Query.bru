@@ -1,0 +1,15 @@
+meta {
+  name: GET Persisted Query
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{AEM_URL}}/graphql/execute.json/{{query}}
+  body: none
+  auth: none
+}
+
+vars:pre-request {
+  query: bts-bluebirddtc/GetFooterData
+}

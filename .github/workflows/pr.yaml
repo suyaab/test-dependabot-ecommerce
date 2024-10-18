@@ -1,0 +1,39 @@
+name: pr
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  GIT_SHA: ${{ github.sha }}
+  LINGO_ENV: ${{ vars.LINGO_ENV }}
+  ADOBE_DTM_SCRIPT: ${{ vars.ADOBE_DTM_SCRIPT }}
+
+jobs:
+  build-lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
+
+      - name: Build
+        run: |
+          pnpm build
+
+      - name: Lint
+        run: |
+          pnpm lint
+
+      - name: Test
+        run: |
+          pnpm test

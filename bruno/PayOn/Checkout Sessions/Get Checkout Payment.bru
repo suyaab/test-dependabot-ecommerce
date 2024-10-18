@@ -1,0 +1,19 @@
+meta {
+  name: Get Checkout Payment
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{PAYON_API_URL}}/v1/checkouts/{{CHECKOUT_ID}}/payment?entityId={{PAYON_ENTITY_ID}}
+  body: none
+  auth: inherit
+}
+
+query {
+  entityId: {{PAYON_ENTITY_ID}}
+}
+
+vars:pre-request {
+  CHECKOUT_ID: F152FF9A1B0E2275CB793485015627E2.uat01-vm-tx03
+}

@@ -1,0 +1,59 @@
+# Auto Label based on files changed
+
+## Applications
+"web":
+  - changed-files:
+      - any-glob-to-any-file: apps/web/**
+
+"functions":
+  - changed-files:
+      - any-glob-to-any-file: apps/functions/**
+
+## Shared Packages
+"commerce":
+  - changed-files:
+      - any-glob-to-any-file: packages/commerce/**
+
+"consent":
+  - changed-files:
+      - any-glob-to-any-file: packages/consent/**
+
+"finance":
+  - changed-files:
+      - any-glob-to-any-file: packages/finance/**
+
+"fulfillment":
+  - changed-files:
+      - any-glob-to-any-file: packages/fulfillment/**
+
+"emails":
+  - changed-files:
+      - any-glob-to-any-file: packages/emails/**
+
+"logger":
+  - changed-files:
+      - any-glob-to-any-file: packages/logger/**
+
+"utils":
+  - changed-files:
+      - any-glob-to-any-file: packages/utils/**
+
+# Shared Configuration
+"config":
+  - changed-files:
+      - any-glob-to-any-file: packages/config/**
+
+"variables":
+  - changed-files:
+      - any-glob-to-any-file: packages/config/variables/**
+
+## Bruno
+"bruno":
+  - changed-files:
+      - any-glob-to-any-file: bruno/**
+
+
+## GitHub Actions
+"ci":
+  - changed-files:
+      - any-glob-to-any-file: .github/**

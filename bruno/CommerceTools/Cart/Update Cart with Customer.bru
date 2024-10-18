@@ -1,0 +1,33 @@
+meta {
+  name: Update Cart with Customer
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/carts/{{cartId}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": {{cartVersion}},
+    "actions": [
+      {
+        "action": "setCustomerId",
+        "customerId": "{{customerId}}"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  cartId: 645c82d3-e714-4f52-911b-c5067a7721b6
+  cartVersion: 9
+  customerId: 1b8153ea-d328-4e78-9e2e-f2c24d5b7057
+}

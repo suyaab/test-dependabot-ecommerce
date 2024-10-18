@@ -1,0 +1,19 @@
+meta {
+  name: HTTP Trigger Local Function
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{FUNCTION_URL}}/api/{{FUNCTION_NAME}}
+  body: json
+  auth: none
+}
+
+body:json {
+  {}
+}
+
+vars:pre-request {
+  FUNCTION_NAME: create-customer
+}

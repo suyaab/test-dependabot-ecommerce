@@ -1,0 +1,31 @@
+meta {
+  name: Change Type Key
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 4,
+    "actions": [
+      {
+        "action": "changeKey",
+        "key": "avalara-customer-info"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: avalara-info
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Get Order by Order Number
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/orders/order-number={{ORDER_NUMBER}}?expand=productType.name
+  body: none
+  auth: bearer
+}
+
+query {
+  expand: productType.name
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  ORDER_NUMBER: USLLLOCAL01
+}

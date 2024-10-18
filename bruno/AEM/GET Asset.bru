@@ -1,0 +1,19 @@
+meta {
+  name: GET Asset
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{AEM_URL}}/{{assetPath}}
+  body: none
+  auth: none
+}
+
+headers {
+  Dispatcher: no-cache
+}
+
+vars:pre-request {
+  assetPath: /content/dam/bts/bluebird/dtc/us/footer/footer_ecomm_v2.json
+}

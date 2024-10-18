@@ -1,0 +1,23 @@
+meta {
+  name: Get Consents
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{ONETRUST_URL}}/api/preferences/v3/datasubjects/profile?includeInstantLinkToken=true
+  body: formUrlEncoded
+  auth: none
+}
+
+query {
+  includeInstantLinkToken: true
+}
+
+headers {
+  identifier: {{EXTERNAL_ID}}
+}
+
+vars:pre-request {
+  EXTERNAL_ID: 3bbbdc55-9188-43c6-a1d8-c5f5a3a73f1a
+}

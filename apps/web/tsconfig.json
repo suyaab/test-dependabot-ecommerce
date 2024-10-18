@@ -1,0 +1,13 @@
+{
+  "extends": "@ecommerce/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "~/tests/*": ["./tests/*"]
+    },
+    "types": ["vitest/globals", "google.maps"]
+  },
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

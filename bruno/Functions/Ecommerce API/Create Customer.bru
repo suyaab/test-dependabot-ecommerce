@@ -1,0 +1,29 @@
+meta {
+  name: Create Customer
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{AZURE_URL}}/us/ecomm/create-customer?subscription-key={{ECOMM_SUB_KEY}}
+  body: json
+  auth: none
+}
+
+params:query {
+  subscription-key: {{ECOMM_SUB_KEY}}
+}
+
+body:json {
+  {
+    "externalId": "3051d978-755b-47d1-99af-50ba45e6a9e2", 
+    "firstName": "Tovin", 
+    "lastName" : "M", 
+    "email": "testingtovin@email.com", 
+  
+  }
+}
+
+body:text {
+  {"email": "arni.nicanor+us15@abbott.com"}
+}

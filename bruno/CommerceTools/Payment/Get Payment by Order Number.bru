@@ -1,0 +1,23 @@
+meta {
+  name: Get Payment by Order Number
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/orders/order-number={{ORDER_NUMBER}}?expand=paymentInfo.payments[*]
+  body: none
+  auth: bearer
+}
+
+query {
+  expand: paymentInfo.payments[*]
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  ORDER_NUMBER: USDRM822VSB
+}

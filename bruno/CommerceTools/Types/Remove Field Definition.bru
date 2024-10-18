@@ -1,0 +1,31 @@
+meta {
+  name: Remove Field Definition
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 37,
+    "actions": [
+      {
+        "action": "removeFieldDefinition",
+        "fieldName": "monthsRemaining"
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: customer-subscription
+}

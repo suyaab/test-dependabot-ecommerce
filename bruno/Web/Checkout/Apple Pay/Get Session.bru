@@ -1,0 +1,21 @@
+meta {
+  name: Get Session
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{WEB_URL}}/api/checkout/apple-pay/session
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "checkoutSessionId": "{{CHECKOUT_SESSION_ID}}"
+  }
+}
+
+vars:pre-request {
+  CHECKOUT_SESSION_ID: 8BC44F2C65F284941EA09EE5D2728F84.uat01-vm-tx02
+}

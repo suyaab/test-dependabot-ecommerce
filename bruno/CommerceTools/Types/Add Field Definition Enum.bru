@@ -1,0 +1,37 @@
+meta {
+  name: Add Field Definition Enum
+  type: http
+  seq: 11
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "version": 35,
+    "actions": [
+      {
+        "action": "addLocalizedEnumValue",
+        "fieldName": "status",
+        "value": {
+          "key": "inactive",
+          "label": {
+            "en": "Inactive"
+          }
+        }
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: customer-subscription
+}

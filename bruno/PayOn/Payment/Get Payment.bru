@@ -1,0 +1,19 @@
+meta {
+  name: Get Payment
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{PAYON_API_URL}}/v1/payments/{{PAYMENT_ID}}?entityId={{PAYON_ENTITY_ID}}
+  body: none
+  auth: inherit
+}
+
+params:query {
+  entityId: {{PAYON_ENTITY_ID}}
+}
+
+vars:pre-request {
+  PAYMENT_ID: 8ac7a4a090b86b790190b911f63944c2
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Processing
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{WEB_URL}}/api/processing
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "cartId": "{{CART_ID}}",
+    "checkoutSessionId": "{{CHECKOUT_SESSION_ID}}"
+  }
+}
+
+vars:pre-request {
+  CART_ID: c68424c1-a70b-4c29-9d69-6593b7f5c4d9
+  CHECKOUT_SESSION_ID: 1F4CF084302042D4A5541092DE32F582.uat01-vm-tx01
+}

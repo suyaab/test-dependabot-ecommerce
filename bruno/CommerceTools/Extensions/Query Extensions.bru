@@ -1,0 +1,15 @@
+meta {
+  name: Query Extensions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/extensions
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}

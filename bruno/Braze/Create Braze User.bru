@@ -1,0 +1,58 @@
+meta {
+  name: Create Braze User
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{BRAZE_API_URL}}/users/track
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{BRAZE_API_KEY}}
+}
+
+body:json {
+  {
+    "attributes": [
+      {
+        "external_id": "{{UUID}}",
+        "email": "{{EMAIL}}",
+        "email_subscribe": "subscribed",
+        "signup_source": {
+          "add": [
+            "us_footer"
+          ]
+        },
+        "country": "US",
+        "subscription_groups": [
+          {
+            "subscription_group_id": "{{BRAZE_SUBSCRIPTION_SPECIAL_OFFERS}}",
+            "subscription_state": "subscribed"
+          },
+          {
+            "subscription_group_id": "{{BRAZE_SUBSCRIPTION_NEWS_CONTENT}}",
+            "subscription_state": "subscribed"
+          },
+          {
+            "subscription_group_id": "{{BRAZE_SUBSCRIPTION_PRODUCT_UPDATES}}",
+            "subscription_state": "subscribed"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+vars:pre-request {
+  EMAIL: will.sather+brazetest1@abbott.com
+  BRAZE_SUBSCRIPTION_NEWS_CONTENT: 1fd88364-af41-45b7-a2a3-150992194250
+  BRAZE_SUBSCRIPTION_PRODUCT_UPDATES: d80cc3bd-d0d5-4c6e-9717-33ba15b82183
+  BRAZE_SUBSCRIPTION_SPECIAL_OFFERS: 571bba20-b930-4034-b6e5-288180e1ea17
+}
+
+script:pre-request {
+  bru.setVar('UUID', require("uuid").v4());
+}

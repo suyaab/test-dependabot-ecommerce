@@ -1,0 +1,23 @@
+meta {
+  name: US Get Customer
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{AZURE_URL}}/us/auth/auth0-get-customer?subscription-key={{AUTH_SUB_KEY}}
+  body: json
+  auth: none
+}
+
+params:query {
+  subscription-key: {{AUTH_SUB_KEY}}
+}
+
+body:json {
+  {"email": "polotestmanualfsjfs@lsjfldjflfldsf.com"}
+}
+
+body:text {
+  {"email": "arni.nicanor+us15@abbott.com"}
+}

@@ -1,0 +1,61 @@
+meta {
+  name: Create Payment Info
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/payments
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "amountPlanned": {
+      "currencyCode": "USD",
+      "centAmount": 1000
+    },
+    "paymentMethodInfo": {
+      "paymentInterface": "PAYON",
+      "method": "CREDIT_CARD",
+      "name": {
+        "locale": "en",
+        "value": "CREDIT_CARD"
+      }
+    },
+    "interfaceId": "random-payon-payment-id-2",
+    "paymentStatus": {
+      "interfaceCode": "467",
+      "interfaceText": "Payment is pending"
+    },
+    "customer": {
+      "id": "587558b4-dbf3-4b08-8055-95d002c3f105",
+      "typeId": "customer"
+    },
+    "transactions": [
+      {
+        "type": "Authorization",
+        "amount": {
+          "currencyCode": "USD",
+          "centAmount": 1000
+        },
+        "timestamp": "2024-03-25T12:00:00.000Z",
+        "state": "Initial"
+      }
+    ],
+    "custom": {
+      "type": {
+        "typeId": "type",
+        "key": "payment-reference"
+      },
+      "fields": {
+        "channel": "ecommerce"
+      }
+    }
+  }
+}

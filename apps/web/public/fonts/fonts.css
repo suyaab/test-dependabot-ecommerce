@@ -1,0 +1,33 @@
+/* This file is used by the app team, we are not using it within our app, but please leave it here */
+
+@font-face {
+  font-family: "MatterLight";
+  src: url("./Matter-Light.woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "MatterRegular";
+  src: url("./Matter-Regular.woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "MatterMedium";
+  src: url("./Matter-Medium.woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "MatterSemibold";
+  src: url("./Matter-SemiBold.woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}

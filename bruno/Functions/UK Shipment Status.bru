@@ -1,0 +1,15 @@
+meta {
+  name: UK Shipment Status
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{AZURE_URL}}/arvatoapi/dtc-order-carrier-status?subscription-key={{UK_ARVATO_KEY}}
+  body: json
+  auth: none
+}
+
+params:query {
+  subscription-key: {{UK_ARVATO_KEY}}
+}

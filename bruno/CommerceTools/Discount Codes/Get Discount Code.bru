@@ -1,0 +1,23 @@
+meta {
+  name: Get Discount Code
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/discount-codes?where=code%3D%22test-onur%22
+  body: none
+  auth: bearer
+}
+
+params:query {
+  where: code%3D%22test-onur%22
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  CUSTOMER_ID: d2bbd679-41f0-4831-b6bb-021ff7eebbdf
+}

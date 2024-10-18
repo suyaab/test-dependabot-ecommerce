@@ -1,0 +1,19 @@
+meta {
+  name: Unsubscribe (one-click)
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{BRU_LINGO_HOME_URL}}/api/unsubscribe?userId={{user_id}}
+  body: none
+  auth: none
+}
+
+params:query {
+  userId: {{user_id}}
+}
+
+vars:pre-request {
+  user_id: 5512a68d-5c54-4be9-b9e6-5c86772e9703
+}

@@ -1,0 +1,29 @@
+meta {
+  name: Create Customer
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/customers
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+body:json {
+  {
+    "externalId" : "53c67168-5eca-4585-acd7-001e2656411a",
+    "firstName": "Joe", 
+    "lastName": "Bob",
+    "email": "bobjoe@yopmail.com",
+    "authenticationMode": "ExternalAuth",
+  }
+}
+
+vars:pre-request {
+  CUSTOMER_ID: c118cc2e-5b7e-4165-a775-aa9b5e54ae48
+}

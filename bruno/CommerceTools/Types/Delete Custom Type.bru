@@ -1,0 +1,23 @@
+meta {
+  name: Delete Custom Type
+  type: http
+  seq: 6
+}
+
+delete {
+  url: {{CTP_API_URL}}/{{CTP_PROJECT_KEY}}/types/key={{CUSTOM_TYPE}}?version=9
+  body: none
+  auth: bearer
+}
+
+query {
+  version: 9
+}
+
+auth:bearer {
+  token: {{CT_BEARER_TOKEN}}
+}
+
+vars:pre-request {
+  CUSTOM_TYPE: customer-subscription
+}

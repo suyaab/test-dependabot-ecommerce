@@ -287,8 +287,8 @@ importers:
         specifier: ^8.56.3
         version: 8.56.3
       '@types/google.maps':
-        specifier: ^3.55.12
-        version: 3.55.12
+        specifier: ^3.58.1
+        version: 3.58.1
       '@types/jsdom':
         specifier: ^21.1.6
         version: 21.1.6
@@ -6393,8 +6393,8 @@ packages:
       '@types/node': 20.14.11
     dev: false
 
-  /@types/google.maps@3.55.12:
-    resolution: {integrity: sha512-Q8MsLE+YYIrE1H8wdN69YHHAF8h7ApvF5MiMXh/zeCpP9Ut745mV9M0F4X4eobZ2WJe9k8tW2ryYjLa87IO2Sg==}
+  /@types/google.maps@3.58.1:
+    resolution: {integrity: sha512-X9QTSvGJ0nCfMzYOnaVs/k6/4L+7F5uCS+4iUmkLEls6J9S/Phv+m/i3mDeyc49ZBgwab3EFO1HEoBY7k98EGQ==}
     dev: true
 
   /@types/hast@3.0.4:
@@ -6918,7 +6918,7 @@ packages:
       '@vitest/spy': 2.1.2
       estree-walker: 3.0.3
       magic-string: 0.30.11
-      vite: 5.4.8(@types/node@20.11.20)
+      vite: 5.4.8(@types/node@20.14.11)
     dev: true
 
   /@vitest/pretty-format@2.1.2:

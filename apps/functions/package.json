@@ -30,7 +30,7 @@
     "@ecommerce/eslint-config": "workspace:*",
     "@ecommerce/typescript-config": "workspace:*",
     "@types/node": "^20.14.11",
-    "azure-functions-core-tools": "^4.0.5571",
+    "azure-functions-core-tools": "^4.0.6543",
     "esbuild": "0.20.2",
     "eslint": "^8.57.1",
     "tsup": "^8.0.2",
